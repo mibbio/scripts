@@ -12,6 +12,6 @@ link='https://www.archlinux.org/mirrorlist/'
 options="country=${location}&protocoll=http&protocoll=https&use_mirror_status=on"
 
 echo "${BOLD}${B}>> ${G}Getting updated mirrorlist for '${location}' ...${RESET}"
-curl -s ${link} --data ${options} | sed -e '/## Score/d; s/#S/S/g' | sudo tee ~/testlist > /dev/null
+curl -s ${link} --data ${options} | sed -e '/## Score/d; s/#S/S/g' | sudo tee /etc/pacman.d/mirrorlist > /dev/null
 echo -e "\n${BOLD}${B}>> ${G}New mirrorlist:${RESET}"
 cat /etc/pacman.d/mirrorlist
